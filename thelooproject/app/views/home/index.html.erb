@@ -1,0 +1,38 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-8 center-block" style="float: none; padding: 50px 0;">
+
+      <div class="panel panel-default well">
+
+        <div class="panel-body">
+
+          <h1 style="margin-top: 0;">Find Nearby Loos</h1>
+
+          <%= render 'shared/search_form' %>
+
+          <hr />
+
+          <p class="lead">The Loo Project - helps you find clean loo around you by creating digital public toilet map. It Includes public toilets and shops, cafes, institutions which can let anyone use their facilities.</p>
+
+          <br />
+
+          <% if user_signed_in? %>
+          <p class="lead text-center">
+            <a href="<%= new_loo_path %>" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus"></span> Share Loo location & info.</a>
+          </p>
+          <% else %>
+            <h2>Get Started!</h2>
+            <p class="lead">
+              <a href="<%= new_user_session_path %>" style="text-decoration: underline;" >Sign in</a> or <a href="<%= new_user_registration_path %>" style="text-decoration: underline;" >Create an account</a> to share informations regarding loos.</p>
+          <% end %>
+        </div> <!-- panel-body -->
+
+      </div> <!-- panel -->
+
+    </div> <!-- col-md-8 -->
+
+  </div> <!-- row -->
+
+</div> <!-- container -->

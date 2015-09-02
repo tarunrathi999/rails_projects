@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+<ul class="list-inline">
+  <li>
+    <%= link_to "Edit", edit_loo_path(loo), class: "btn btn-default btn-sm" %>
+  </li>
+  <li>
+    <%= link_to 'Destroy', loo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+  </li>
+</ul>
+<% end %>

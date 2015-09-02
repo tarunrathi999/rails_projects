@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 center-block" style="float: none;">
+
+      <% if params[:q] %>
+        <div class="well">
+          <br />
+          <%= render 'shared/search_form' %>
+        </div>
+      <% end %>
+
+      <% unless @loos.empty? %>
+
+      <% if params[:q] %>
+        <h3>Search result (<%= @loos.size %>)</h3>
+      <% else %>
+        <h1>Listing Loos(<%= @loos.size %>)</h1>
+      <% end %>
+        <%= render @loos %>
+      <% else %>
+        <div class="alert alert-warning">
+          <strong>No loos found.</strong>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+

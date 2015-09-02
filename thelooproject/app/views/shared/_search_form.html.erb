@@ -1,0 +1,20 @@
+<form action="<%= search_path %>" role="search">
+  <div class="input-group input-group-lg">
+    <input type="text" name="q" value="<%= params[:q] %>" class="form-control location_input" placeholder="Enter a location...">
+    <span class="input-group-btn">
+      <button type="submit" class="btn btn-danger" type="button">Find</button>
+    </span>
+  </div><!-- /input-group -->
+  <span id="helpBlock" class="help-block">eg. Ahmedabad Airport, Ahmedabad, Gujarat, India.</span>
+  <div id="location_section" class="form-inputs">
+    <div class="well hide">
+      <div><input data-geo="lat" value="<%= params[:loo][:lat] if params[:loo] && params[:loo] && params[:loo][:lat] %>" class="string optional form-control" type="text" name="loo[lat]" id="loo_lat"></div>
+      <div><input data-geo="lng" value="<%= params[:loo][:lng] if params[:loo] && params[:loo][:lng] %>" class="string optional form-control" type="text" name="loo[lng]" id="loo_lng"></div>
+      <div><input value="<%= params[:loo][:formatted_address] if params[:loo] && params[:loo][:formatted_address] %>" data-geo="formatted_address" class="text optional form-control" name="loo[formatted_address]" id="loo_formatted_address"/></div>
+      <div><input value="<%= params[:loo][:postal_code] if params[:loo] && params[:loo][:postal_code]%>" data-geo="postal_code" class="string optional form-control" type="text" name="loo[postal_code]" id="loo_postal_code"></div>
+      <div><input value="<%= params[:loo][:locality] if params[:loo] && params[:loo][:locality] %>" data-geo="locality" class="string optional form-control" type="text" name="loo[locality]" id="loo_locality"></div>
+      <div><input value="<%= params[:loo][:country] if params[:loo] && params[:loo][:country] %>" data-geo="country" class="string optional form-control" type="text" name="loo[country]" id="loo_country"></div>
+      <div><input value="<%= params[:loo][:administrative_area_level_1] if params[:loo] && params[:loo][:administrative_area_level_1] %>" data-geo="administrative_area_level_1" class="string optional form-control" type="text" name="loo[administrative_area_level_1]" id="loo_administrative_area_level_1"></div>
+    </div>
+  </div>
+</form>

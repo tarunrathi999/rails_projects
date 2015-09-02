@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row" style="margin-botton: 40px;">
+    <div class="col-md-5">
+      <%= image_tag @loo.photo.url(:medium), class: "img-thumbnail" %>
+      <hr/>
+      <%= render :partial => 'loos/actions', locals: { loo: @loo } %>
+    </div>
+    <div class="col-md-7">
+      <h2><%= @loo.name %></h2>
+      <h4><%= @loo.location_name %></h4>
+      <%= content_tag :h5, "Postal code: #{@loo.postal_code}" unless @loo.postal_code.blank? %>
+
+      <hr />
+
+      <%= simple_format @loo.description %>
+      
+      <%= render :partial => 'loos/summary', locals: { loo: @loo } %>
+
+      <hr />
+      <p>
+        <a href="javascript:void(0)" class="show_map" data-loo="<%= @loo.to_json %>"  style="text-decoration: underline;">View map</a>
+      </p>
+      <div style="width:500px; height: 400px;" id="map_canvas"></div>
+    </div>
+  </div>
+</div>
+

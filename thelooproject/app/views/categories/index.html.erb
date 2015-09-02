@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 center-block" style="float: none;">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 style="margin: 0;">Categories</h2>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+          <% @categories.each do |category| %>
+            <div class="col-xs-6 col-md-4 text-center" style="margin-top: 30px;">
+              <a href="<%= category_path(category) %>" class="thumbnail">
+                <h2>
+                  <%= category.name %> (<%= category.loos.size %>)
+                </h2>
+              </a>
+
+              <% if user_signed_in? %>
+              <small>
+                <ul class="list-inline">
+                  <li>
+                    <%= link_to 'Show', category %>
+                  </li>
+                  <li>
+                    <%= link_to 'Edit', edit_category_path(category) %>
+                  </li>
+                  <li>
+                    <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </li>
+                </ul>
+              </small>
+              <% end %>
+            </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <%= link_to 'New Category', new_category_path, class: "btn btn-default" if user_signed_in? %>
+
+    </div>
+  </div>
+</div>

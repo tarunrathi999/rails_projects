@@ -1,0 +1,15 @@
+<hr />
+        <div class="row">
+          <div class="col-md-4">
+            <a href="<%= loo_path(loo) %>">
+              <%= image_tag loo.photo.url(:medium), class: "img-thumbnail" %>
+            </a>
+            <hr />
+            <%= render :partial => 'loos/actions', locals: { loo: loo } %>
+          </div>
+          <div class="col-md-7">
+            <h3 class="media-heading"><%= link_to loo.name, loo_path(loo) %></h3>
+            <p><%= loo.location_name %></p>
+            <%= render :partial => 'loos/summary', locals: { loo: loo } %>
+          </div>
+        </div>
