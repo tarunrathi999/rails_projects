@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 style="margin: 0;"><%= @category.name %></h2>
+  </div>
+  <div class="panel-body">
+    <% if @category.city_makers.empty? %>
+      <div class="alert alert-warning">
+        No records found.
+      </div>
+    <% else %>
+      <%= render @category.city_makers %>
+    <% end %>
+  </div>
+</div>
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
+<% end %>

@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-4">
+    <a href="<%= city_maker_path(city_maker) %>">
+      <%= image_tag city_maker.avatar.url(:medium), class: "img-thumbnail" %>
+    </a>
+  </div>
+
+  <div class="col-md-8">
+    <a href="<%= city_maker_path(city_maker) %>">
+      <h3 style="margin-top:0 ;"><%= city_maker.name %></h3>
+    </a>
+    <p>
+      <%= city_maker.address1 %><br />
+      <%= city_maker.city %>, <%= city_maker.state %>. <%= city_maker.country %>
+    </p>
+    <p>
+      Category: <%= link_to city_maker.category.name, city_maker.category %>
+    </p>
+    <% if user_signed_in? %>
+    <hr />
+    <small>
+      <ul class="list-inline">
+        <li><%= link_to 'Show', city_maker %></li>
+        <li><%= link_to 'Edit', edit_city_maker_path(city_maker) %></li>
+        <li><%= link_to 'Destroy', city_maker, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    </small>
+    <% end %>
+  </div>
+</div>
+<hr />

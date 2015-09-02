@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <%= render partial: 'shared/header' %>
+
+    <div class="content">
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <%= content_tag :div, "Sign in to add city maker", class: "alert alert-info" unless user_signed_in? %>
+      
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; CityMakers 2014.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h1><%= "\"#{params[:q]}\" - Found " if params[:q] %> City Makers (<%= @city_makers.size %>)</h1>
+    <br />
+
+    <form action="<%= search_path %>" role="search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="q" value="<%= params[:q] %>" class="form-control" placeholder="Search for CityMakers...">
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-danger" type="button">Find</button>
+        </span>
+      </div><!-- /input-group -->
+    </form>
+
+    <hr />
+
+    <%= render @city_makers %>
+
+    <br>
+
+    <%= link_to 'New City maker', new_city_maker_path, class: "btn btn-default" if user_signed_in? %>
+
+  </div>
+
+</div>

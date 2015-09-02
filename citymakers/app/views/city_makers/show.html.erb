@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-5">
+    <%= image_tag @city_maker.avatar.url(:original), class: "img-thumbnail" %>
+    <div>
+      <hr />
+      <button class="btn btn-primary btn-xs">Write review</button>
+    </div>
+  </div>
+
+  <div class="col-md-7">
+    <h2 style="margin-top:0 ;"><%= @city_maker.name %></h2>
+    <p>
+      Category: <%= link_to @city_maker.category.name, @city_maker.category %>
+    </p>
+    <%= simple_format @city_maker.description %>
+    <hr />
+    <p>
+      <%= @city_maker.address1 %><br />
+      <%= @city_maker.address2 %><br />
+      <%= @city_maker.city %>, <%= @city_maker.state %>. <%= @city_maker.country %>
+    </p>
+    <p>
+      Phone: <%= @city_maker.phone %>
+    </p>
+    <hr />
+    <p>
+      Timings: <%= @city_maker.timings %>
+    </p>
+    <hr />
+
+    <%= simple_format @city_maker.note %>
+
+  </div>
+</div>
+<h3>
+  <a href="javascript:void(0)" class="show_map" data-citymaker="<%= @city_maker.to_json %>"  style="text-decoration: underline;">View map</a>
+</h3>
+<div style="width:100%; height: 500px; display: none;" id="map_canvas">
+</div>
+<hr />
+<div class="row">
+  <div class="col-md-8">
+    <% if user_signed_in? %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong style="font-size: 20px;">Write review</strong>
+      </div>
+      <div class="panel-body">
+        <%= render 'reviews/form' %>
+      </div>
+    </div>
+    <hr />
+    <% end %>
+    <h2>Reviews</h2>
+    <div id="reviews">
+      <%= render @city_maker.reviews %>
+    </div>
+  </div>
+</div>
+
+
+<% if user_signed_in? && current_user.admin? %>
+<%= link_to 'Edit', edit_city_maker_path(@city_maker) %> |
+<%= link_to 'Back', city_makers_path %>
+<% end %>

@@ -1,0 +1,21 @@
+<div class="jumbotron text-center">
+  <h1 style="font-size: 40px; margin-bottom: 20px;">Discover common service providing entrepreneurs.</h1>
+  <br />
+  <form action="<%= search_path %>" role="search">
+    <div class="input-group input-group-lg">
+      <input type="text" name="q" class="form-control" placeholder="Search for CityMakers...">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-danger" type="button">Find</button>
+      </span>
+    </div><!-- /input-group -->
+  </form>
+
+  <br />
+  <br />
+
+  <p style="font-size: 18px;">CityMakers are the people who are the building blocks of a city but are often neglected unless their service is required. This project aims to map all low to middle class entrepreneurs whose virtual presence is as important as their physical one. </p>
+  <% unless user_signed_in? %>
+    <br />
+    <p><a style="text-decoration: underline;" href="<%= new_user_session_path %>">Sign in</a> or <a style="text-decoration: underline;" href="<%= new_user_registration_path %>">Create an account</a></p>
+  <% end %>
+</div>

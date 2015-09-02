@@ -1,0 +1,10 @@
+<div style="margin-bottom: 10px; border-bottom: solid 1px #eee; padding-bottom: 10px;">
+  <strong><%= review.user.email.split('@').first %>: <%= review.title %></strong>
+  <%= simple_format review.body %>
+  <input value="<%= review.rating %>" data-show-clear="false" data-readonly="true" type="number" class="rating" min=1 max=5 step=1 data-size="xs" >
+  <% if user_signed_in? && current_user == review.user %>
+  <br />
+  <br />
+  <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?', remote: true } %>
+  <% end %>
+</div>
